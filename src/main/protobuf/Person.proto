@@ -1,0 +1,36 @@
+// The syntax for the file is proto3
+syntax = "proto3";
+package com.pdms.person;
+
+message Person{
+  enum EYE_COLOR  {
+    UNKNOWN_EYE_COLOR = 0;
+    EYE_GREEN = 1;
+    EYE_BLUE = 2;
+  }
+  // This is the person age
+  int32 age = 1;
+  string first_name = 2;
+  string last_name = 3;
+  // Small picture represent a JPEG file
+  bytes small_pic = 4;
+  bool  profile_verified = 5;
+  // Height of the person in centimeters
+  float height = 6;
+  // List of phone number which is optional to provide at signup
+  repeated string phones = 7;
+
+  EYE_COLOR eye_color = 8;
+
+
+  message Address {
+    string addressLine1 = 1;
+    string addressLine2 = 2;
+    string zipcode = 3;
+    string city = 4;
+    string country = 5;
+  }
+
+  repeated Address addresses = 9;
+}
+
